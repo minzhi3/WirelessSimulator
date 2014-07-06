@@ -5,13 +5,13 @@ import java.util.TimerTask;
 import view.DisplayData;
 
 public class DelayTimer extends TimerTask {
-	DisplayData displayData;
-	public DelayTimer(DisplayData displayData){
-		this.displayData=displayData;
+	SimTask simTask;
+	public DelayTimer(SimTask simTask){
+		this.simTask=simTask;
 	}
 	@Override
 	public void run() {
-		displayData.setData(displayData.num+1);
+		simTask.nextStep();
 	}
 
 }

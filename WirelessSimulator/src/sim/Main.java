@@ -11,12 +11,14 @@ public class Main {
 	public static void main(String[] args) {
 		MainFrame mainFrame=new MainFrame();
 		mainFrame.setVisible(true);
-		DisplayData displayData=new DisplayData();
-		displayData.addObserver(mainFrame);
 		//for (int i=0;i<100;i++){
 		//	displayData.setData(i);
 		//}
-		DelayTimer delayTimer=new DelayTimer(displayData);
+		DisplayData displayData=new DisplayData();
+		displayData.addObserver(mainFrame);
+
+		SimTask simTask=new SimTask(displayData,3);
+		DelayTimer delayTimer=new DelayTimer(simTask);
 		Timer timer=new Timer();
 		timer.schedule(delayTimer, 100,100);
 		//mainFrame.setState("DDDD");
